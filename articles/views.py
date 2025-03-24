@@ -57,6 +57,17 @@ def delete(request, id):
     return redirect('articles:index')
 
 
-# def comment_create(request, id):
+def comment_create(request, id):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            # 저장하지 말고 대기해, 댓글 달 게시물의 index값이 안들어왔기 때문문
+            # article = Article.objects.get(id=article_id) # 여기 article_id는 어디서 온거니
+            # comment.article = article 여기 밑에까지 설명필요..
+            # comment.save()
+        pass
+    else:
+        return redirect('articles:detail', id=id)
     
         

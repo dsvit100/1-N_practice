@@ -8,5 +8,14 @@
 <a href="{% url 'articles:index' %}">home</a>
 <a href="{% url 'articles:update' article.id %}">edit</a>
 <a href="{% url 'articles:delete' article.id %}">delete</a>
+<hr>
+<!-- <form action="{% url 'articles:comment_create' article.id}" method="POST">
+    articles:comment_create는 어디로 가는 건지 잘 모르겠셔... -->
+    <!-- POST는 왜 써야하지? 등록했던 글이니까? 왜 form 썼는데도 댓글창 안열림... -->
+     {% csrf_token %}
+     {{form}}
+    <input type="submit">
+</form>
+
 
 {% endblock %}
