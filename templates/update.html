@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<form action="" method="POST">
+    <!-- detail에서 update를 하려고 edit을 눌러 글 수정 후 게시하면 -->
+     <!-- 현재 위치에서 재실행됨 -->
+    {% csrf_token%}
+    {{form}}
+    <input type="submit">
+
+</form>
+{% endblock %}
