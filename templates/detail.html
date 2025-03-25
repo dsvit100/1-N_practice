@@ -9,12 +9,13 @@
 <a href="{% url 'articles:update' article.id %}">edit</a>
 <a href="{% url 'articles:delete' article.id %}">delete</a>
 <hr>
-<!-- <form action="{% url 'articles:comment_create' article.id}" method="POST">
-    articles:comment_create는 어디로 가는 건지 잘 모르겠셔... -->
-    <!-- POST는 왜 써야하지? 등록했던 글이니까? 왜 form 썼는데도 댓글창 안열림... -->
+<form action="{% url 'articles:comment_create' article.id}" method="POST">
+    <!-- 요기 articles:comment_create는 urls.py의 name에서 불러옴 -->
      {% csrf_token %}
      {{form}}
+     <!-- form이 detail함수 안에 정의가 되어 있어야 불러와 쓸 수 있음 -->
     <input type="submit">
+    <!-- submit을 눌러야 위의 POST가 작동됨(기입된 정보를 가지고 제출!) -->
 </form>
 
 
